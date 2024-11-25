@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
         { id: 3, name: "Bob Johnson" },
     ];
 
-    res.json(arr);
+    res.send(arr);
 });
 const books = [
     { id: 1, title: "The Lord of the Rings" },
@@ -32,7 +32,7 @@ const books = [
 
 // Get all books
 app.get("/books", (req, res) => {
-    res.json(books);
+    res.send(books);
 });
 
 // Get a specific book
@@ -40,7 +40,7 @@ app.get("/books/:id", (req, res) => {
     const id = parseInt(req.params.id);
     const book = books.find((book) => book.id === id);
     if (book) {
-        res.json(book);
+        res.send(book);
     } else {
         res.status(404).json({ message: "Book not found" });
     }
@@ -55,7 +55,7 @@ app.put("/books/:id", (req, res) => {
     if (bookIndex !== -1) {
         books[bookIndex] = req.body;
 
-        res.json(books[bookIndex]);
+        res.send(books[bookIndex]);
     } else {
         res.status(404).json({ message: "Book not found" });
     }
