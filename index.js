@@ -9,6 +9,9 @@ app.get("/", (req, res) => {
 app.get("/about", (req, res) => {
     res.send("This is about page!");
 });
+app.get("/contact", (req, res) => {
+    res.send("This is about page!");
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
