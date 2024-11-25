@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
+app.get("/api/", (req, res) => {
     const arr = [
         { id: 1, name: "John Doe" },
         { id: 2, name: "Jane Smith" },
@@ -31,12 +31,12 @@ const books = [
 ];
 
 // Get all books
-app.get("/books", (req, res) => {
+app.get("/api/books", (req, res) => {
     res.send(books);
 });
 
 // Get a specific book
-app.get("/books/:id", (req, res) => {
+app.get("/api/books/:id", (req, res) => {
     const id = parseInt(req.params.id);
     const book = books.find((book) => book.id === id);
     if (book) {
@@ -47,7 +47,7 @@ app.get("/books/:id", (req, res) => {
 });
 
 // Update a book
-app.put("/books/:id", (req, res) => {
+app.put("/api/books/:id", (req, res) => {
     console.log(req.body);
     const id = parseInt(req.params.id);
     const bookIndex = books.findIndex((book) => book.id === id);
