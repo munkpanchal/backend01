@@ -10,7 +10,7 @@ app.get("/about", (req, res) => {
     res.send("This is about page!");
 });
 app.get("/contact", (req, res) => {
-    res.send("This is about page!");
+    res.send("This is contact page!");
 });
 
 const port = process.env.PORT || 3000;
